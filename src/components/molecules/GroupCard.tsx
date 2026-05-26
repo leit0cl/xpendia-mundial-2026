@@ -34,6 +34,7 @@ export function GroupCard({ letter, color, teams }: Props) {
 
       <HStack align="stretch" gap={0} pl={4}>
         <Box
+          {...({ 'data-group-letter': letter } as object)}
           minW="64px"
           display="flex"
           alignItems="center"

@@ -1,4 +1,5 @@
-import { expect, test, type Page } from '@playwright/test';
+import { type Page } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 async function gotoTactics(page: Page) {
   await page.goto('/tactics');
@@ -45,8 +46,9 @@ test.describe('Pizarra táctica', () => {
     // Limpiar
     await page.getByRole('button', { name: /limpiar/i }).click();
     await page.waitForTimeout(800);
-    // El meta vuelve a no mostrar "trazos"
-    await expect(page.getByText(/trazo/i)).toHaveCount(0);
+    // El contador de trazos del meta ("· N trazo[s]") desaparece. Filtramos
+    // patrón `· N trazo` para no chocar con el botón "✕ Trazos" del toolbar.
+    await expect(page.getByText(/·\s*\d+\s+trazos?/i)).toHaveCount(0);
     // Y vuelve el contador de cancha (auto-seed)
     await expect(page.getByText(/22 en cancha/i)).toBeVisible();
   });

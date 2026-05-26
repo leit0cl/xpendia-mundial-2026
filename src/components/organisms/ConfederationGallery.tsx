@@ -142,7 +142,7 @@ export function ConfederationGallery() {
                 <Box
                   as="a"
                   key={key}
-                  href={`#conf-${key}`}
+                  {...({ href: `#conf-${key}` } as object)}
                   display="inline-flex"
                   alignItems="center"
                   gap={2}

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Modo Marquesina', () => {
   test('botón abre el modo y muestra empty state cuando no hay media', async ({ page }) => {
@@ -12,7 +12,9 @@ test.describe('Modo Marquesina', () => {
 
     // Aparece el dialog modal.
     await expect(page.getByRole('dialog')).toBeVisible({ timeout: 5_000 });
-    await expect(page.getByText(/sin material para proyectar/i)).toBeVisible({ timeout: 3_000 });
+    // Tag discreto bottom: "Sin material · {team}" (tras la migración i18n
+    // dejamos solo el chip pequeño, no el headline grande original).
+    await expect(page.getByText(/Sin material · Brasil/i)).toBeVisible({ timeout: 3_000 });
 
     // Tiene el iframe de YouTube de fallback como fondo.
     const yt = page.locator('iframe[src*="youtube.com/embed"]');

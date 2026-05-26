@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+# Bloquea pushear código que no compila / falla lint / falla tests / falla build.
+# `check` corre: lint + typecheck (tsc -b --noEmit, igual que CI) + tests
+# unitarios + build de producción. Cualquier falla detiene el push antes que
+# llegue al remoto, así CI no se entera de un cagazo evitable.
+#
+# Si necesitas saltarlo en una emergencia: `git push --no-verify`.
+echo "→ Running pre-push checks (lint + typecheck + tests + build)..."
+npm run check

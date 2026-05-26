@@ -142,8 +142,10 @@ export function AppShell() {
               {pwa.canInstall && (
                 <Box
                   as="button"
-                  type="button"
-                  aria-label={t('nav.installAriaLabel')}
+                  {...({
+                    type: 'button',
+                    'aria-label': t('nav.installAriaLabel'),
+                  } as object)}
                   onClick={() => void pwa.install()}
                   ml={1}
                   px={3}
