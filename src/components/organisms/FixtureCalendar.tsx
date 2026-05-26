@@ -3,22 +3,38 @@ import { useTranslation } from 'react-i18next';
 
 type Phase = {
   key: 'groups' | 'r32' | 'r16' | 'qf' | 'sf' | 'third' | 'final';
-  dates: string;
+  /** Fechas como ISO. Se formatean en runtime según el locale activo. */
+  start: string;
+  end?: string;
   matches: number;
   highlight?: boolean;
 };
 
-/** Fechas son universales (formato ISO-ish, no se traducen). Las etiquetas
- *  del kicker/título/nota viven en i18n bajo `fixture.phases`. */
 const PHASES: Phase[] = [
-  { key: 'groups', dates: '11 jun → 27 jun', matches: 72 },
-  { key: 'r32', dates: '28 jun → 3 jul', matches: 16 },
-  { key: 'r16', dates: '4 jul → 7 jul', matches: 8 },
-  { key: 'qf', dates: '9 jul → 11 jul', matches: 4 },
-  { key: 'sf', dates: '14 jul → 15 jul', matches: 2 },
-  { key: 'third', dates: '18 jul', matches: 1 },
-  { key: 'final', dates: '19 jul', matches: 1, highlight: true },
+  { key: 'groups', start: '2026-06-11', end: '2026-06-27', matches: 72 },
+  { key: 'r32', start: '2026-06-28', end: '2026-07-03', matches: 16 },
+  { key: 'r16', start: '2026-07-04', end: '2026-07-07', matches: 8 },
+  { key: 'qf', start: '2026-07-09', end: '2026-07-11', matches: 4 },
+  { key: 'sf', start: '2026-07-14', end: '2026-07-15', matches: 2 },
+  { key: 'third', start: '2026-07-18', matches: 1 },
+  { key: 'final', start: '2026-07-19', matches: 1, highlight: true },
 ];
+
+/** Formatea una fecha ISO al locale activo, sin año (es contexto Mundial 2026
+ *  obvio en la sección). Día numérico + mes abreviado: "11 jun" / "Jun 11". */
+function formatShort(iso: string, locale: string) {
+  const date = new Date(`${iso}T12:00:00Z`);
+  return new Intl.DateTimeFormat(locale, {
+    day: 'numeric',
+    month: 'short',
+    timeZone: 'UTC',
+  }).format(date);
+}
+
+function formatRange(start: string, end: string | undefined, locale: string) {
+  if (!end) return formatShort(start, locale);
+  return `${formatShort(start, locale)} → ${formatShort(end, locale)}`;
+}
 
 const PHASE_KEYS = {
   groups: { kicker: 'groupsKicker', title: 'groupsTitle' },
@@ -31,7 +47,8 @@ const PHASE_KEYS = {
 } as const;
 
 export function FixtureCalendar() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const locale = (i18n.resolvedLanguage ?? i18n.language ?? 'es') === 'en' ? 'en-US' : 'es-ES';
   return (
     <Box as="section" id="calendario" py={{ base: 16, md: 24 }} scrollMarginTop="120px">
       <Container maxW="1400px">
@@ -138,7 +155,7 @@ export function FixtureCalendar() {
                       color="fg.muted"
                       letterSpacing="0.02em"
                     >
-                      {p.dates}
+                      {formatRange(p.start, p.end, locale)}
                     </Text>
                     <HStack gap={1.5} mt={1}>
                       <Text fontFamily="mono" fontSize="0.85rem" fontWeight={700} color="white">

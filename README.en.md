@@ -32,7 +32,22 @@ Everything runs in your browser. No cloud, no trackers, no licenses.
 
 ## Screenshots
 
-> High-res screenshots will live in `/docs/screenshots/` soon. Meanwhile, `npm run dev` and see it live.
+<table>
+  <tr>
+    <td width="50%"><img src="./docs/screenshots/01-hero.jpeg" alt="Hero — The World Cup isn't just watched. It's archived, drawn, told." /></td>
+    <td width="50%"><img src="./docs/screenshots/02-use-cases-tactics.jpeg" alt="Two crafts + tactical board mini-preview with wing buildup arrows" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><sub>Editorial hero · Crafts bento + tactical board showcase</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./docs/screenshots/03-confederations.jpeg" alt="Confederations gallery — CONMEBOL, UEFA, CAF visible" /></td>
+    <td width="50%"><img src="./docs/screenshots/04-tactical-board.jpeg" alt="3D tactical board with curved arrows, pen and eraser active" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><sub>Confederations with kit colors · Board with drawing overlay and active tools</sub></td>
+  </tr>
+</table>
 
 ## Features
 

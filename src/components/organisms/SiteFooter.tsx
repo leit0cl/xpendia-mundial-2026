@@ -134,7 +134,7 @@ export function SiteFooter() {
               </ChakraLink>{' '}
               — {t('footer.codeMit')}{' '}
               <ChakraLink
-                href="https://github.com/xpendia"
+                href="https://github.com/leit0cl/xpendia-mundial-2026"
                 target="_blank"
                 rel="noopener noreferrer"
                 color="white"

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "App local estilo Netflix para gestionar contenido multimedia personal de selecciones y jugadores del Mundial 2026. No comercial.",
+  "description": "Local-first World Cup 2026 web app — fan album, FIFA-regulation 3D tactical board with drawing overlay, and cinematic marquee mode. Three crafts under one roof. ES/EN, PWA, MIT.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",

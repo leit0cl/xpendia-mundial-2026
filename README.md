@@ -32,7 +32,22 @@ Todo corre en tu navegador. Sin nube, sin trackers, sin licencias.
 
 ## Capturas
 
-> Las capturas en alta resolución viven en `/docs/screenshots/` (próximamente). Mientras tanto, `pnpm dev` y velo en vivo.
+<table>
+  <tr>
+    <td width="50%"><img src="./docs/screenshots/01-hero.jpeg" alt="Hero — El Mundial no se mira. Se archiva, se dibuja, se cuenta." /></td>
+    <td width="50%"><img src="./docs/screenshots/02-use-cases-tactics.jpeg" alt="Dos oficios + miniatura de pizarra táctica con flechas de buildup" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><sub>Hero editorial · Bento de oficios + showcase de la pizarra</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./docs/screenshots/03-confederations.jpeg" alt="Galería de confederaciones — CONMEBOL, UEFA, CAF visibles" /></td>
+    <td width="50%"><img src="./docs/screenshots/04-tactical-board.jpeg" alt="Pizarra táctica 3D con flechas curvas, lápiz y goma activos" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><sub>Confederaciones con kit colors · Pizarra con drawing overlay y herramientas activas</sub></td>
+  </tr>
+</table>
 
 ## Características
 
