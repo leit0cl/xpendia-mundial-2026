@@ -1,0 +1,48 @@
+name: Dependabot auto-merge
+
+# Solo dispara sobre PRs creados por Dependabot. Los demás PRs requieren
+# revisión manual como siempre.
+on: pull_request_target
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    name: Auto-merge safe Dependabot PRs
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      # Lee metadata del PR (semver bump type, ecosystem, dependency-type).
+      - name: Fetch Dependabot metadata
+        id: meta
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Auto-merge solo cuando el bump es PATCH (1.2.3 → 1.2.4).
+      # Minor y major SIEMPRE requieren revisión humana (pueden traer breaking
+      # changes encubiertos). Security updates de cualquier tipo también
+      # auto-mergean — son prioritarios.
+      - name: Auto-merge patch + security updates
+        if: |
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.dependency-type == 'direct:production' &&
+          contains(steps.meta.outputs.dependency-names, 'security')
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # GitHub Actions bumps (patch + minor) también auto-merge — son
+      # cambios de YAML sin lógica de app.
+      - name: Auto-merge GitHub Actions patches and minors
+        if: |
+          steps.meta.outputs.package-ecosystem == 'github_actions' &&
+          (steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+           steps.meta.outputs.update-type == 'version-update:semver-minor')
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

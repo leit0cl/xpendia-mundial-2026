@@ -1,33 +1,65 @@
 version: 2
 updates:
+  # npm: schedule diario para que los security/patches lleguen rápido.
+  # Los PRs siguen pasando por CI y branch protection antes de mergearse.
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: weekly
-      day: monday
+      interval: daily
       time: '09:00'
       timezone: America/Santiago
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     labels:
       - dependencies
     commit-message:
       prefix: chore
       include: scope
     groups:
+      # Grupo único para devDeps: minor + patch en un solo PR. Reduce ruido.
       dev-dependencies:
         dependency-type: development
-      chakra-three:
+        update-types:
+          - minor
+          - patch
+      # Familia Chakra + 3D + animation viaja junta: las versiones tienden
+      # a depender entre sí, mejor mergearlas en batch.
+      ui-framework:
         patterns:
           - '@chakra-ui/*'
+          - '@emotion/*'
           - '@react-three/*'
           - 'three'
           - 'framer-motion'
+        update-types:
+          - minor
+          - patch
+      # i18n family agrupada para mantener compat entre i18next + react-i18next.
+      i18n:
+        patterns:
+          - 'i18next'
+          - 'i18next-*'
+          - 'react-i18next'
+        update-types:
+          - minor
+          - patch
+    # Las major bumps quedan SIEMPRE como PRs individuales (no se agrupan):
+    # son los que más probabilidad tienen de romper, queremos revisarlas
+    # una por una.
 
+  # GitHub Actions: chequeo semanal — los upgrades de actions son menos
+  # frecuentes y casi siempre safe.
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
+      day: monday
+      time: '09:00'
+      timezone: America/Santiago
     labels:
       - ci
     commit-message:
       prefix: ci
+    groups:
+      actions:
+        patterns:
+          - '*'
