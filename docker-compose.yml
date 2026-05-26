@@ -1,0 +1,36 @@
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: xpendia-mundial-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - ./minio-data:/data
+    healthcheck:
+      test: ['CMD', 'mc', 'ready', 'local']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Crea el bucket y le aplica CORS abierto a localhost:5173 para que el SDK del browser pueda subir archivos.
+  minio-init:
+    image: minio/mc:latest
+    container_name: xpendia-mundial-minio-init
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      sleep 5;
+      mc alias set local http://minio:9000 minioadmin minioadmin;
+      mc mb --ignore-existing local/mundial-media;
+      mc anonymous set download local/mundial-media;
+      echo '{\"CORSRules\":[{\"AllowedOrigins\":[\"http://localhost:5173\"],\"AllowedMethods\":[\"GET\",\"PUT\",\"POST\",\"DELETE\",\"HEAD\"],\"AllowedHeaders\":[\"*\"],\"ExposeHeaders\":[\"ETag\"]}]}' > /tmp/cors.json;
+      mc admin config set local api cors_allow_origin='http://localhost:5173';
+      mc admin service restart local || true;
+      echo 'MinIO listo: bucket mundial-media creado con CORS para http://localhost:5173';
+      "

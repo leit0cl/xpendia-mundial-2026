@@ -1,0 +1,53 @@
+name: 🟣 Feature request
+description: Proponer una nueva funcionalidad o mejora.
+labels: ['enhancement', 'triage']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: ¿Qué problema resuelve?
+      description: Caso de uso o pain point. Evita saltar directo a la solución.
+      placeholder: Cuando estoy en modo marquesina, quiero música ambient para que se sienta más cinematográfico.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solución propuesta
+      placeholder: Agregar un toggle "🎵 Audio" en la marquesina que reproduzca una pista loop.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: ¿Qué otras formas pensaste? ¿Por qué descartaste?
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área del proyecto
+      options:
+        - Landing
+        - TeamPage (detalle de selección)
+        - Pizarra táctica
+        - Modo Marquesina
+        - Storage (LocalForage/MinIO)
+        - Datos (rosters, equipos)
+        - Performance / Build
+        - Accesibilidad
+        - Otro
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: Cambio compatible (no breaking)
+        - label: Requiere cambio de schema de datos
+        - label: Requiere nueva dependencia
+        - label: Estoy dispuesto/a a implementarlo
