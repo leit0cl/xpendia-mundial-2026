@@ -17,6 +17,19 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     viewport: { width: 1440, height: 900 },
+    // Forzamos español en TODOS los tests: la i18n del repo detecta el idioma
+    // del navegador y CI corre con en-US por defecto. Inyectamos la key de
+    // localStorage que el LanguageDetector lee al cargar.
+    locale: 'es-ES',
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: 'http://localhost:5173',
+          localStorage: [{ name: 'xpendia.lang', value: 'es' }],
+        },
+      ],
+    },
   },
   projects: [
     {
