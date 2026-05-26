@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Initial JS (home, sin Three.js)",
+    "path": "dist/assets/index-*.js",
+    "limit": "200 KB",
+    "gzip": true
+  },
+  {
+    "name": "HomePage chunk (lazy)",
+    "path": "dist/assets/HomePage-*.js",
+    "limit": "20 KB",
+    "gzip": true
+  },
+  {
+    "name": "TacticsPage chunk (lazy, incluye Three.js)",
+    "path": "dist/assets/TacticsPage-*.js",
+    "limit": "320 KB",
+    "gzip": true
+  },
+  {
+    "name": "CSS principal",
+    "path": "dist/assets/index-*.css",
+    "limit": "120 KB",
+    "gzip": true
+  }
+]

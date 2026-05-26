@@ -1,0 +1,78 @@
+name: 🐛 Bug report
+description: Reportar un comportamiento incorrecto o inesperado.
+labels: ['bug', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar. Mientras más detalle, más rápido lo arreglamos.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: ¿Qué pasó?
+      description: Descripción breve del bug.
+      placeholder: Al rotar el campo y arrastrar una ficha, salta a otra posición.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Pasos para reproducir
+      description: Lista numerada de pasos.
+      placeholder: |
+        1. Ir a /tactics
+        2. Click en Rotar
+        3. Arrastrar la ficha #8
+        4. La ficha aparece donde no debería
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado
+      placeholder: La ficha debería seguir al cursor.
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser + versión
+      placeholder: Chrome 128, Safari 17, Firefox 130
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Sistema operativo
+      placeholder: macOS 14.5, Windows 11, Ubuntu 24.04
+    validations:
+      required: true
+
+  - type: dropdown
+    id: storage
+    attributes:
+      label: Backend de storage activo
+      options:
+        - LocalForage (default)
+        - MinIO
+        - No estoy seguro
+    validations:
+      required: false
+
+  - type: textarea
+    id: console
+    attributes:
+      label: Errores en consola
+      description: Pega cualquier error o warning relevante de la consola del navegador.
+      render: text
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Capturas / video
+      description: Arrastra aquí imágenes o videos si los tienes.

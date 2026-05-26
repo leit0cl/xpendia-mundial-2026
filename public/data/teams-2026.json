@@ -1,0 +1,65 @@
+{
+  "tournament": {
+    "id": "fifa-wc-2026",
+    "name": "Mundial 2026",
+    "hosts": ["US", "CA", "MX"],
+    "startDate": "2026-06-11",
+    "endDate": "2026-07-19",
+    "note": "Lista oficial de 48 selecciones clasificadas al Mundial 2026 con sus 12 grupos (A-L). Banderas vía flag-icons (dominio público). Logos de FIFA o federaciones intencionalmente excluidos."
+  },
+  "teams": [
+    { "code": "ARG", "name": "Argentina",            "isoCountry": "AR",     "confederation": "CONMEBOL", "kitHome": "#75AADB", "kitAway": "#0C1F45", "group": "J" },
+    { "code": "BRA", "name": "Brasil",               "isoCountry": "BR",     "confederation": "CONMEBOL", "kitHome": "#FFDF1B", "kitAway": "#0D3DA8", "group": "C" },
+    { "code": "URU", "name": "Uruguay",              "isoCountry": "UY",     "confederation": "CONMEBOL", "kitHome": "#5DADEC", "kitAway": "#FFFFFF", "group": "H" },
+    { "code": "COL", "name": "Colombia",             "isoCountry": "CO",     "confederation": "CONMEBOL", "kitHome": "#FCD116", "kitAway": "#003893", "group": "K" },
+    { "code": "ECU", "name": "Ecuador",              "isoCountry": "EC",     "confederation": "CONMEBOL", "kitHome": "#FFD100", "kitAway": "#003366", "group": "E" },
+    { "code": "PAR", "name": "Paraguay",             "isoCountry": "PY",     "confederation": "CONMEBOL", "kitHome": "#D52B1E", "kitAway": "#FFFFFF", "group": "D" },
+
+    { "code": "USA", "name": "Estados Unidos",       "isoCountry": "US",     "confederation": "CONCACAF", "kitHome": "#FFFFFF", "kitAway": "#0A3161", "group": "D", "host": true },
+    { "code": "MEX", "name": "México",               "isoCountry": "MX",     "confederation": "CONCACAF", "kitHome": "#006847", "kitAway": "#FFFFFF", "group": "A", "host": true },
+    { "code": "CAN", "name": "Canadá",               "isoCountry": "CA",     "confederation": "CONCACAF", "kitHome": "#D52B1E", "kitAway": "#FFFFFF", "group": "B", "host": true },
+    { "code": "CUW", "name": "Curazao",              "isoCountry": "CW",     "confederation": "CONCACAF", "kitHome": "#002B7F", "kitAway": "#FFFFFF", "group": "E" },
+    { "code": "HAI", "name": "Haití",                "isoCountry": "HT",     "confederation": "CONCACAF", "kitHome": "#00209F", "kitAway": "#D21034", "group": "C" },
+    { "code": "PAN", "name": "Panamá",               "isoCountry": "PA",     "confederation": "CONCACAF", "kitHome": "#D21034", "kitAway": "#005AA7", "group": "L" },
+
+    { "code": "ESP", "name": "España",               "isoCountry": "ES",     "confederation": "UEFA",     "kitHome": "#C60B1E", "kitAway": "#FFC400", "group": "H" },
+    { "code": "FRA", "name": "Francia",              "isoCountry": "FR",     "confederation": "UEFA",     "kitHome": "#1E3A8A", "kitAway": "#FFFFFF", "group": "I" },
+    { "code": "ENG", "name": "Inglaterra",           "isoCountry": "GB-ENG", "confederation": "UEFA",     "kitHome": "#FFFFFF", "kitAway": "#7C0A2A", "group": "L" },
+    { "code": "POR", "name": "Portugal",             "isoCountry": "PT",     "confederation": "UEFA",     "kitHome": "#7C0A02", "kitAway": "#FFFFFF", "group": "K" },
+    { "code": "NED", "name": "Países Bajos",         "isoCountry": "NL",     "confederation": "UEFA",     "kitHome": "#FF6C00", "kitAway": "#0C2340", "group": "F" },
+    { "code": "GER", "name": "Alemania",             "isoCountry": "DE",     "confederation": "UEFA",     "kitHome": "#FFFFFF", "kitAway": "#1C1C1C", "group": "E" },
+    { "code": "BEL", "name": "Bélgica",              "isoCountry": "BE",     "confederation": "UEFA",     "kitHome": "#C8102E", "kitAway": "#1C1C1C", "group": "G" },
+    { "code": "CRO", "name": "Croacia",              "isoCountry": "HR",     "confederation": "UEFA",     "kitHome": "#E51A22", "kitAway": "#0C1F45", "group": "L" },
+    { "code": "SUI", "name": "Suiza",                "isoCountry": "CH",     "confederation": "UEFA",     "kitHome": "#D52B1E", "kitAway": "#FFFFFF", "group": "B" },
+    { "code": "AUT", "name": "Austria",              "isoCountry": "AT",     "confederation": "UEFA",     "kitHome": "#ED2939", "kitAway": "#FFFFFF", "group": "J" },
+    { "code": "NOR", "name": "Noruega",              "isoCountry": "NO",     "confederation": "UEFA",     "kitHome": "#BA0C2F", "kitAway": "#FFFFFF", "group": "I" },
+    { "code": "TUR", "name": "Turquía",              "isoCountry": "TR",     "confederation": "UEFA",     "kitHome": "#E30A17", "kitAway": "#FFFFFF", "group": "D" },
+    { "code": "BIH", "name": "Bosnia y Herzegovina", "isoCountry": "BA",     "confederation": "UEFA",     "kitHome": "#002395", "kitAway": "#FFC72C", "group": "B" },
+    { "code": "CZE", "name": "República Checa",      "isoCountry": "CZ",     "confederation": "UEFA",     "kitHome": "#D7141A", "kitAway": "#FFFFFF", "group": "A" },
+    { "code": "SCO", "name": "Escocia",              "isoCountry": "GB-SCT", "confederation": "UEFA",     "kitHome": "#0065BD", "kitAway": "#FFFFFF", "group": "C" },
+    { "code": "SWE", "name": "Suecia",               "isoCountry": "SE",     "confederation": "UEFA",     "kitHome": "#FECC00", "kitAway": "#006AA7", "group": "F" },
+
+    { "code": "MAR", "name": "Marruecos",            "isoCountry": "MA",     "confederation": "CAF",      "kitHome": "#C1272D", "kitAway": "#006233", "group": "C" },
+    { "code": "SEN", "name": "Senegal",              "isoCountry": "SN",     "confederation": "CAF",      "kitHome": "#FFFFFF", "kitAway": "#00853F", "group": "I" },
+    { "code": "ALG", "name": "Argelia",              "isoCountry": "DZ",     "confederation": "CAF",      "kitHome": "#006233", "kitAway": "#FFFFFF", "group": "J" },
+    { "code": "TUN", "name": "Túnez",                "isoCountry": "TN",     "confederation": "CAF",      "kitHome": "#FFFFFF", "kitAway": "#E70013", "group": "F" },
+    { "code": "EGY", "name": "Egipto",               "isoCountry": "EG",     "confederation": "CAF",      "kitHome": "#C8102E", "kitAway": "#FFFFFF", "group": "G" },
+    { "code": "GHA", "name": "Ghana",                "isoCountry": "GH",     "confederation": "CAF",      "kitHome": "#FFFFFF", "kitAway": "#000000", "group": "L" },
+    { "code": "RSA", "name": "Sudáfrica",            "isoCountry": "ZA",     "confederation": "CAF",      "kitHome": "#FFD200", "kitAway": "#007749", "group": "A" },
+    { "code": "CIV", "name": "Costa de Marfil",      "isoCountry": "CI",     "confederation": "CAF",      "kitHome": "#FF8200", "kitAway": "#FFFFFF", "group": "E" },
+    { "code": "COD", "name": "RD Congo",             "isoCountry": "CD",     "confederation": "CAF",      "kitHome": "#007FFF", "kitAway": "#FFD700", "group": "K" },
+    { "code": "CPV", "name": "Cabo Verde",           "isoCountry": "CV",     "confederation": "CAF",      "kitHome": "#003893", "kitAway": "#FFFFFF", "group": "H" },
+
+    { "code": "JPN", "name": "Japón",                "isoCountry": "JP",     "confederation": "AFC",      "kitHome": "#0C1F45", "kitAway": "#FFFFFF", "group": "F" },
+    { "code": "IRN", "name": "Irán",                 "isoCountry": "IR",     "confederation": "AFC",      "kitHome": "#FFFFFF", "kitAway": "#239F40", "group": "G" },
+    { "code": "KOR", "name": "Corea del Sur",        "isoCountry": "KR",     "confederation": "AFC",      "kitHome": "#C8102E", "kitAway": "#FFFFFF", "group": "A" },
+    { "code": "AUS", "name": "Australia",            "isoCountry": "AU",     "confederation": "AFC",      "kitHome": "#FFC72C", "kitAway": "#012169", "group": "D" },
+    { "code": "KSA", "name": "Arabia Saudí",         "isoCountry": "SA",     "confederation": "AFC",      "kitHome": "#FFFFFF", "kitAway": "#006B3F", "group": "H" },
+    { "code": "QAT", "name": "Catar",                "isoCountry": "QA",     "confederation": "AFC",      "kitHome": "#8A1538", "kitAway": "#FFFFFF", "group": "B" },
+    { "code": "IRQ", "name": "Irak",                 "isoCountry": "IQ",     "confederation": "AFC",      "kitHome": "#007A33", "kitAway": "#FFFFFF", "group": "I" },
+    { "code": "UZB", "name": "Uzbekistán",           "isoCountry": "UZ",     "confederation": "AFC",      "kitHome": "#FFFFFF", "kitAway": "#0099B5", "group": "K" },
+    { "code": "JOR", "name": "Jordania",             "isoCountry": "JO",     "confederation": "AFC",      "kitHome": "#FFFFFF", "kitAway": "#CE1126", "group": "J" },
+
+    { "code": "NZL", "name": "Nueva Zelanda",        "isoCountry": "NZ",     "confederation": "OFC",      "kitHome": "#FFFFFF", "kitAway": "#000000", "group": "G" }
+  ]
+}

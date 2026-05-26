@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&family=Righteous&display=swap');
+
+:root {
+  /* Mundial 2026 — paleta dual-anfitrión */
+  --ink-950: #07090f;
+  --ink-900: #0b0f1a;
+  --ink-800: #131826;
+  --ink-700: #1c2236;
+  --ink-600: #2a314a;
+  --ink-500: #3a4263;
+
+  --mx-red: #b7253c;
+  --ca-red: #d52b1e;
+  --us-blue: #0a3161;
+  --field-green: #1f7a3a;
+
+  --gold: #e6c46a;
+  --gold-soft: #f2d98a;
+  --gold-deep: #c39a3d;
+
+  /* Tipografía */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-kicker: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Override de los tokens originales con foco editorial */
+  --bg-deep: var(--ink-950);
+  --bg-mid: var(--ink-900);
+  --text-primary: rgba(255, 255, 255, 0.96);
+  --text-muted: rgba(255, 255, 255, 0.62);
+}
+
+/* Fondo editorial: gradientes sutiles + ink */
+html,
+body,
+#root {
+  font-family: var(--font-body);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(70, 227, 255, 0.07), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 5%, rgba(230, 196, 106, 0.045), transparent 50%),
+    radial-gradient(ellipse 50% 35% at 10% 8%, rgba(183, 37, 60, 0.04), transparent 50%),
+    linear-gradient(180deg, var(--ink-900) 0%, var(--ink-950) 100%);
+  background-attachment: fixed;
+}
+
+/* Utilidades editoriales */
+.kicker {
+  font-family: var(--font-kicker);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--gold);
+  display: inline-block;
+}
+
+.kicker-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.kicker-line::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  font-variation-settings: 'opsz' 144;
+}
+
+.display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  font-variation-settings: 'opsz' 144;
+}
+
+.display-gradient {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 60%, #e6e8ef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 24px rgba(255, 255, 255, 0.18))
+    drop-shadow(0 0 80px rgba(70, 227, 255, 0.08));
+}
+
+.bento-tile {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+.bento-tile:hover {
+  border-color: rgba(230, 196, 106, 0.35);
+  transform: translateY(-4px);
+}
+.bento-tile::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(230, 196, 106, 0.18), transparent 40%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.holo-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.holo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    135deg,
+    rgba(230, 196, 106, 0.55),
+    transparent 35%,
+    transparent 65%,
+    rgba(70, 227, 255, 0.35)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
+}
+.holo-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(230, 196, 106, 0.25);
+}
+
+.host-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-family: var(--font-kicker);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold-deep));
+  color: var(--ink-950);
+}
+
+/* Override flag-icons cuando se usa como fondo full-bleed:
+   la clase .fi de la librería fuerza inline-block + aspect 4:3 + pseudo-element con espacio.
+   Aquí lo neutralizamos para que respete inset:0 del parent absoluto. */
+.fi-bleed.fi {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  line-height: 0 !important;
+}
+.fi-bleed.fi::before {
+  content: none !important;
+}
+
+/* Logo Xpendia (compartido con xpendia-web) */
+.xpendia-logo {
+  font-family: 'Righteous', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.xpendia-logo .brace-open,
+.xpendia-logo .brace-close {
+  display: inline-block;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    text-shadow 0.3s ease,
+    color 0.3s ease;
+  will-change: transform;
+}
+.xpendia-logo .brace-open {
+  color: #ff7357;
+  transform-origin: right center;
+}
+.xpendia-logo .brand {
+  color: #00bfff;
+  padding: 0 0.06em;
+  transition: text-shadow 0.3s ease;
+}
+.xpendia-logo .brace-close {
+  color: #11fa8f;
+  transform-origin: left center;
+}
+
+/* Hover individual de cada llave: se abre (rota + desplaza) y se enciende.
+   Si el cursor está sobre toda la marca también se intensifica el brand. */
+.xpendia-logo:hover .brand {
+  text-shadow: 0 0 18px rgba(0, 191, 255, 0.55);
+}
+.xpendia-logo .brace-open:hover {
+  transform: translateX(-3px) rotate(-12deg) scale(1.18);
+  text-shadow:
+    0 0 16px rgba(255, 115, 87, 0.85),
+    0 0 32px rgba(255, 115, 87, 0.35);
+  color: #ff8a72;
+}
+.xpendia-logo .brace-close:hover {
+  transform: translateX(3px) rotate(12deg) scale(1.18);
+  text-shadow:
+    0 0 16px rgba(17, 250, 143, 0.85),
+    0 0 32px rgba(17, 250, 143, 0.35);
+  color: #38ffa3;
+}
+
+/* Al pasar el cursor sobre la marca completa, ambas llaves "respiran"
+   un toque sin llegar a separarse tanto como en hover directo. */
+.xpendia-logo:hover .brace-open:not(:hover) {
+  transform: translateX(-1.5px) rotate(-4deg);
+}
+.xpendia-logo:hover .brace-close:not(:hover) {
+  transform: translateX(1.5px) rotate(4deg);
+}
+
+.xpendia-logo .product {
+  font-family: var(--font-kicker);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-left: 0.7em;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  padding-left: 0.7em;
+  align-self: center;
+}
+
+/* Variante grande para el footer */
+.xpendia-logo--lg {
+  font-size: 2.2rem;
+}
+
+/* Refuerzo del header transparente al scroll */
+.appshell-header {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+.appshell-header[data-scrolled='true'] {
+  background-color: rgba(7, 9, 15, 0.72);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
