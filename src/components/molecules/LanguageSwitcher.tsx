@@ -25,12 +25,14 @@ export function LanguageSwitcher() {
           <Box
             key={lang}
             as="button"
-            type="button"
+            {...({
+              type: 'button',
+              'aria-pressed': active,
+              'aria-label': lang === 'es' ? 'Español' : 'English',
+            } as object)}
             onClick={() => {
               if (!active) void i18n.changeLanguage(lang);
             }}
-            aria-pressed={active}
-            aria-label={lang === 'es' ? 'Español' : 'English'}
             px={2.5}
             py={1}
             fontFamily="mono"

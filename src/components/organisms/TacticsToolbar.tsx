@@ -253,11 +253,16 @@ function ToolbarBtn({
   return (
     <Box
       as="button"
-      type="button"
+      {...({
+        type: 'button',
+        title,
+        // No fallback de aria-label sobre title: si no se pasa ariaLabel
+        // explícito, el accessible name lo da el texto visible del botón
+        // (mejor a11y — los lectores leen "Limpiar", no el tooltip largo).
+        ...(ariaLabel ? { 'aria-label': ariaLabel } : {}),
+        'aria-pressed': active,
+      } as object)}
       onClick={onClick}
-      title={title}
-      aria-label={ariaLabel ?? title}
-      aria-pressed={active}
       px={3}
       py={1.5}
       bg={bg}

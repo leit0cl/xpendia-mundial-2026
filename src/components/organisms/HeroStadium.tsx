@@ -164,13 +164,15 @@ export function HeroStadium() {
             <HStack gap={4} flexWrap="wrap" mt={2}>
               <Box
                 as="a"
-                href="#selecciones"
-                onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-                  e.preventDefault();
-                  document
-                    .getElementById('selecciones')
-                    ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }}
+                {...({
+                  href: '#selecciones',
+                  onClick: (e: MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    document
+                      .getElementById('selecciones')
+                      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  },
+                } as object)}
                 display="inline-flex"
                 alignItems="center"
                 gap={2}

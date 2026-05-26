@@ -17,6 +17,10 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     viewport: { width: 1440, height: 900 },
+    // El locale en español se inyecta vía addInitScript en `e2e/fixtures.ts`
+    // (corre antes de cualquier JS de la app → el LanguageDetector encuentra
+    // la key en localStorage y no cae a navigator.language).
+    locale: 'es-ES',
   },
   projects: [
     {
