@@ -332,10 +332,12 @@ export function TeamMarquee({ team, players, open, onClose }: Props) {
             display="flex"
             alignItems="center"
             justifyContent="center"
-            variants={slideVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
+            {...({
+              variants: slideVariants,
+              initial: 'initial',
+              animate: 'animate',
+              exit: 'exit',
+            } as object)}
             willChange="transform, opacity, filter"
           >
             <SlideMedia slide={current} onEnded={advance} />
@@ -441,9 +443,11 @@ export function TeamMarquee({ team, players, open, onClose }: Props) {
       {/* Botón cerrar (esquina superior derecha) */}
       <Box
         as="button"
-        type="button"
-        aria-label={t('marquee.exitAriaLabel')}
-        title={t('marquee.exitAriaLabel')}
+        {...({
+          type: 'button',
+          'aria-label': t('marquee.exitAriaLabel'),
+          title: t('marquee.exitAriaLabel'),
+        } as object)}
         position="absolute"
         top={{ base: 6, md: 10 }}
         right={{ base: 6, md: 12 }}

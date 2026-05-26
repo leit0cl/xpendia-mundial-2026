@@ -79,9 +79,11 @@ function MarqueeButton({ onClick }: { onClick: () => void }) {
   return (
     <Box
       as="button"
-      type="button"
-      aria-label={t('team.marqueeButtonAriaLabel')}
-      title={t('team.marqueeButtonTitle')}
+      {...({
+        type: 'button',
+        'aria-label': t('team.marqueeButtonAriaLabel'),
+        title: t('team.marqueeButtonTitle'),
+      } as object)}
       onClick={onClick}
       display="inline-flex"
       alignItems="center"
@@ -105,7 +107,6 @@ function MarqueeButton({ onClick }: { onClick: () => void }) {
         boxShadow: '0 0 0 1px rgba(70,227,255,0.14) inset, 0 18px 44px rgba(70,227,255,0.36)',
         borderColor: 'rgba(70,227,255,0.75)',
       }}
-      title="Proyectar todo el material del equipo en pantalla completa"
     >
       <Box
         as="span"

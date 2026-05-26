@@ -253,11 +253,13 @@ function ToolbarBtn({
   return (
     <Box
       as="button"
-      type="button"
+      {...({
+        type: 'button',
+        title,
+        'aria-label': ariaLabel ?? title,
+        'aria-pressed': active,
+      } as object)}
       onClick={onClick}
-      title={title}
-      aria-label={ariaLabel ?? title}
-      aria-pressed={active}
       px={3}
       py={1.5}
       bg={bg}
